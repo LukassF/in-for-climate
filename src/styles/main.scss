@@ -1,0 +1,19 @@
+@import './weather-box';
+
+@mixin flex($direction, $justify, $align){
+    display:flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+:root{
+    --dropdown-opacity:0;
+}
+body, html{
+    background-color: rgb(9, 44, 65);
+    display:grid;
+    height:100vh;
+    width: 100vw;
+    place-content: center;
+    overflow-x: hidden;
+}

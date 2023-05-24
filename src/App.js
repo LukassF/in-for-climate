@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import search from "./functions/searchFunc";
 import match from "./functions/matchCities";
+import './styles/main.css'
+import WeatherBox from "./components/weather-box";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -9,28 +11,26 @@ export default function App() {
   const [list, setList] = useState([])
 
   useEffect(() => {
-    // console.log(currentWeather,weatherForecast)
-  },[currentWeather])
-
-  useEffect(() => {
     if(city.length > 0){
         match({city,setList})
-    }
+    }else{setList([])}
   },[city])
+
+  useEffect(() => {
+    if(list.length>0) document.documentElement.style.setProperty('--dropdown-opacity', 1)
+    else document.documentElement.style.setProperty('--dropdown-opacity', 0)
+  },[list])
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="Enter City name"
-        onChange={(e) => setCity(e.target.value)}
-      />
-      <button onClick={() => search({setCurrentWeather, setWeatherForecast, city})}></button>
-      <div>
-        {list.map(item => {
-            return `${item.name} - ${item.country}`
-        })}
-      </div>
+      <WeatherBox 
+        searchSuggestions={list}
+        setCurrentWeather={setCurrentWeather}        
+        setWeatherForecast={setWeatherForecast}
+        setCity={setCity}
+        currentWeather={currentWeather}
+        city={city}
+        />
     </>
   );
 }

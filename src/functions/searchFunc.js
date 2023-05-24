@@ -33,11 +33,12 @@ export default async function search({setCurrentWeather, setWeatherForecast, cit
     Object.assign(weatherData.main,weatherData.weather[0],weatherData.wind,{country: weatherData.sys.country},{is_day: forecast3.current_weather.is_day})
     const maxTemperatures = forecast3.daily.temperature_2m_max.slice(1,-2)
     const minTemperatures = forecast3.daily.temperature_2m_min.slice(1,-2)
+    const time = forecast3.daily.time
 
     //Formatting final data
     const array = []
     nextDaysFiltered.forEach((item,index) => {
-        array.push({conditions: item,max: maxTemperatures[index],min: minTemperatures[index]})
+        array.push({conditions: item,max: maxTemperatures[index],min: minTemperatures[index],time:new Date(time[index+1]).toDateString()})
     })
 
 
