@@ -41,7 +41,7 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
                         city={city}
                     />
                     :
-                    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 }
             </section>
             

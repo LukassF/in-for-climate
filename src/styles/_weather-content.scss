@@ -23,10 +23,22 @@ section#weather-content-section{
     #icon{
         display: grid;
         place-content: center;
+
+        
+        @media screen and (max-width:550px){
+            img{
+                transform: scale(0.7);
+            }
+        }
     }
     #temp{
         // background-color: rgb(9, 255, 0);
         @include flex(column, center,center);
+
+        
+        @media screen and (max-width:550px){
+            transform: scale(0.8);
+        }
 
         span{
             text-align: center;
@@ -67,7 +79,7 @@ section#weather-content-section{
             }
             span:nth-child(2){
                 i{
-                    color:rgb(29, 87, 175);
+                    color:rgb(54, 124, 230);
                 }
             }
         }
@@ -97,12 +109,17 @@ section#weather-content-section{
         background-color: rgba(190, 180, 180, 0.3);
         border-radius: 20px;
         box-shadow: 3px 3px 10px black;
+        @include flex(column, center, center);
         
         ul{
             width: 100%;
             padding-left: 0px;
             @include flex(row, space-around, center);
             list-style: none;
+
+            @media screen and (max-width:550px){
+                font-size: 0.8em;
+            }
 
             li{
                 @include flex(column,center,center);

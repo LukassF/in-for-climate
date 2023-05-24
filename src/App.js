@@ -3,6 +3,7 @@ import search from "./functions/searchFunc";
 import match from "./functions/matchCities";
 import './styles/main.css'
 import WeatherBox from "./components/weather-box";
+import Navbar from "./components/navbar";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -14,7 +15,7 @@ export default function App() {
   useEffect(() => {
     console.log(weatherForecast, currentWeather)
   },[currentWeather])
-  
+
   useEffect(() => {
     if(city.length > 0){
         match({city,setList})
@@ -30,6 +31,7 @@ export default function App() {
 
   return (
     <>
+      <Navbar />
       <WeatherBox 
         searchSuggestions={list}
         setCurrentWeather={setCurrentWeather}        

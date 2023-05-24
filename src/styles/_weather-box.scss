@@ -20,10 +20,16 @@
     gap:10px;
     overflow: hidden;
     box-shadow: 0px 0px 40px var(--box-shadow-color);
-    
-    @media screen and (max-width:550px) {
+
+    @media screen and (max-width:550px){
+        box-shadow: none;
+        border: none;
+        height:93vh;
+        top:45px;
+        border-radius: 0;
         transform: scale(0.95);
     }
+
 
     #input-box{
         width: 100%;
@@ -32,8 +38,8 @@
         gap:3px;
 
         input{
-            flex: 12;
-            height:35px;
+            flex: 10;
+            height:45px;
             border-radius: 10px;
             border: solid black 2px;
             outline: none;
@@ -43,7 +49,7 @@
         }
         button{
             flex:1;
-            height:38px;
+            height:48px;
             border-radius: 10px;
             border: none;
             background-color: rgb(0, 195, 255);
@@ -61,16 +67,20 @@
 #dropdown-suggestions{
     @include flex(column,center,flex-start);
     gap:2px;
-    // width:92.5%;
     align-self: flex-start;
     position: absolute;
     top:54%;
+    left:50%;
+    transform: translateX(-50%);
     opacity: var(--dropdown-opacity);
     transition: opacity 0.3s;
+    @media screen and (max-width:550px){
+        top:140px;
+    }
     
     #suggestion{
         background-color: rgb(224, 224, 224);
-        max-width:calc(100vw - 30px);
+        max-width:calc(95vw - 30px);
         width:520px;
         padding: 15px;
         border-radius: 5px;
@@ -102,9 +112,14 @@
     display: inline-block;
     position: relative;
     top:50%;
-    transform: translateY(-50%);
+    left:50%;
+    transform: translate(-150%,-50%);
     width: 150px;
     height: 150px;
+
+    @media screen and (max-width: 480px) {
+        transform: translate(-100%,-50%);
+    }
   }
   .lds-spinner div {
     transform-origin: 40px 40px;
