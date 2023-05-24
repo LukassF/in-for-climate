@@ -1,0 +1,52 @@
+[
+    {
+        "conditions": "Clear",
+        "is_day":1,
+        "icon":"../assets/fullsun.png"  
+    },
+    {
+        "conditions": "Clear",
+        "is_day":0,
+        "icon":"../assets/fullmoon.png"  
+    },
+    {
+        "conditions": "Clouds",
+        "is_day":1,
+        "icon":"../assets/cloudedsun.png"  
+    },
+    {
+        "conditions": "Clouds",
+        "is_day":0,
+        "icon":"../assets/cloudedmoon.png"  
+    },
+    {
+        "conditions": "Haze",
+        "is_day":1,
+        "icon":"../assets/fog.png"  
+    },
+    {
+        "conditions": "Haze",
+        "is_day":0,
+        "icon":"../assets/fog.png"  
+    },
+    {
+        "conditions": "Rain",
+        "is_day":1,
+        "icon":"../assets/rain.png"  
+    },
+    {
+        "conditions": "Rain",
+        "is_day":0,
+        "icon":"../assets/rain.png"  
+    },
+    {
+        "conditions": "Snow",
+        "is_day":1,
+        "icon":"../assets/snow.png"  
+    },
+    {
+        "conditions": "Snow",
+        "is_day":0,
+        "icon":"../assets/snow.png"  
+    }
+]

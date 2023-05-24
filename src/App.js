@@ -9,7 +9,11 @@ export default function App() {
   const [currentWeather, setCurrentWeather] = useState({})
   const [weatherForecast, setWeatherForecast] = useState([])
   const [list, setList] = useState([])
+  const [picked, setPicked] = useState(false)
 
+  useEffect(() => {
+    console.log(weatherForecast, currentWeather)
+  },[currentWeather])
   useEffect(() => {
     if(city.length > 0){
         match({city,setList})
@@ -17,8 +21,9 @@ export default function App() {
   },[city])
 
   useEffect(() => {
-    if(list.length>0) document.documentElement.style.setProperty('--dropdown-opacity', 1)
+    if(list.length>0 && !picked) document.documentElement.style.setProperty('--dropdown-opacity', 1)
     else document.documentElement.style.setProperty('--dropdown-opacity', 0)
+    setPicked(false)
   },[list])
 
   return (
@@ -30,6 +35,8 @@ export default function App() {
         setCity={setCity}
         currentWeather={currentWeather}
         city={city}
+        setPicked={setPicked}
+        list={list}
         />
     </>
   );

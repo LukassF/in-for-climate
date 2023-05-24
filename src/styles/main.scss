@@ -1,4 +1,5 @@
 @import './weather-box';
+@import './weather-content';
 
 @mixin flex($direction, $justify, $align){
     display:flex;

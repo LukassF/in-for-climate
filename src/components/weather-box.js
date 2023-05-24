@@ -1,9 +1,10 @@
 import pick from "../functions/pickSuggestion"
 import search from "../functions/searchFunc"
 import { useRef } from "react"
+import WeatherContent from "./weather_content"
 
 
-export default function WeatherBox({searchSuggestions, setCurrentWeather, setWeatherForecast, setCity, city, currentWeather}){
+export default function WeatherBox({searchSuggestions, setCurrentWeather, setWeatherForecast, setCity, city, currentWeather, setPicked, list}){
     const citySearchRef = useRef(null)
 
     return(
@@ -16,12 +17,12 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
                     onChange={(e) => setCity(e.target.value)}
                     ref={citySearchRef}
                 />
-                <button onClick={() => search({setCurrentWeather, setWeatherForecast, city})}><i className="fa fa-magnifying-glass"/></button>
+                <button onClick={() => search({setCurrentWeather, setWeatherForecast, city, list})}><i className="fa fa-magnifying-glass"/></button>
             </div>
             <div id="dropdown-suggestions">
                 {searchSuggestions.map(item => {
                     return(
-                        <div key={Math.random()} id="suggestion" onClick={() => pick({name:item.name,country:item.country, setCity, citySearchRef})}>
+                        <div key={Math.random()} id="suggestion" onClick={() => pick({name:item.name,country:item.country, setCity, citySearchRef, setPicked})}>
                             <div>
                                 <span>{item.name}</span>
                                 <span>{item.state}</span>
@@ -31,6 +32,7 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
                     )
                 })}
             </div> 
+            <WeatherContent />
         </section>
     )
 }

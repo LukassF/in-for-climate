@@ -10,7 +10,8 @@ export default async function match({city, setList}){
     //filtering the array from unneccessary info
     const filteredCities = matchedCities.map(item => {
         let country = iso.filter(obj => obj.Code === item.country)
-        return {name: item.name, country: country[0].Name.split(',')[0], state:item.state}
+        if(country.length > 0)
+            return {name: item.name, country: country[0].Name.split(',')[0], state:item.state}
     })
 
     //Evaluation function
