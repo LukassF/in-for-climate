@@ -1,4 +1,4 @@
-import { APIkey } from "./searchFunc";
+import { APIkey } from "./searchFunc"
 import iso from '../data/iso3166.json'
 
 export default async function match({city, setList}){
