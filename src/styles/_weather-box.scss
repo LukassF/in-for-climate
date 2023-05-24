@@ -24,8 +24,8 @@
     @media screen and (max-width:550px){
         box-shadow: none;
         border: none;
-        height:93vh;
-        top:45px;
+        height:91vh;
+        top:40px;
         border-radius: 0;
         transform: scale(0.95);
     }
@@ -55,6 +55,7 @@
             background-color: rgb(0, 195, 255);
             cursor: pointer;
             transition: all 0.2s;
+            color:white;
 
             &:hover{
                 background-color: rgb(83, 217, 235);
@@ -98,10 +99,18 @@
             span:nth-child(1){
                 font-size: 1.2em;
                 font-weight: bolder;
+
+                @media screen and (max-width:550px){
+                    font-size: 1.1em;
+                }
             }
             span:nth-child(2){
                 color:grey;
                 font-size: 0.9em;
+
+                @media screen and (max-width:550px){
+                    font-size: 0.7em;
+                }
             }
         }
     }

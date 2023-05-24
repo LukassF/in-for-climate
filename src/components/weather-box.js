@@ -2,6 +2,7 @@ import pick from "../functions/pickSuggestion"
 import search from "../functions/searchFunc"
 import { useRef, useState } from "react"
 import WeatherContent from "./weather_content"
+import Forecast from "./weather-forecast"
 
 
 export default function WeatherBox({searchSuggestions, setCurrentWeather, setWeatherForecast, setCity, city, currentWeather, setPicked, list}){
@@ -42,6 +43,10 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
                     />
                     :
                     <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                }
+
+                {currentWeather.main !== undefined && 
+                    <Forecast />
                 }
             </section>
             

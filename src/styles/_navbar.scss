@@ -8,6 +8,7 @@ nav{
     background-color: rgb(3, 21, 37);
     @include flex(row, space-around, center);
     gap:70px;
+    z-index: 3;
 
     span{
         @include flex(row, center, center);
