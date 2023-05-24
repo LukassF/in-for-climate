@@ -2,17 +2,19 @@
   position: relative;
   width: 550px;
   height: var(--box-height);
-  transition: height 0.4s;
+  transition: all 0.4s;
   max-width: 100vw;
-  background-color: aliceblue;
+  background: linear-gradient(rgb(28, 107, 103), rgb(4, 26, 39));
   border-radius: 10px;
-  padding: 10px 5px;
+  border: solid white 2px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
   overflow: hidden;
+  box-shadow: 0px 0px 40px var(--box-shadow-color);
 }
 @media screen and (max-width: 550px) {
   #weather-box-section {
@@ -36,10 +38,11 @@
   outline: none;
   padding: 0px 10px;
   font-size: 1.1em;
+  background-color: rgb(212, 209, 209);
 }
 #weather-box-section #input-box button {
   flex: 1;
-  height: 41px;
+  height: 38px;
   border-radius: 10px;
   border: none;
   background-color: rgb(0, 195, 255);
@@ -95,22 +98,229 @@
   font-size: 0.9em;
 }
 
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+}
+
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #fff;
+}
+
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 section#weather-content-section {
+  opacity: var(--weather-content-opacity);
+  transition: opacity 0.4s;
   width: 100%;
   height: 400px;
-  background-color: aquamarine;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3fr 1fr 1fr;
+  grid-template-areas: "icon temp" "location location" "other other";
+}
+section#weather-content-section #icon {
+  display: grid;
+  place-content: center;
+}
+section#weather-content-section #temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+section#weather-content-section #temp span {
+  text-align: center;
+  align-self: center;
+  font-size: 1.7em;
+  color: rgb(209, 206, 206);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+section#weather-content-section #temp span i {
+  font-size: 0.6em;
+}
+section#weather-content-section #temp #main-temp {
+  font-size: 4em;
+  color: rgb(255, 253, 253);
+  position: relative;
+}
+section#weather-content-section #temp #main-temp::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(214, 212, 212);
+  width: 100%;
+  height: 4px;
+  border-radius: 500px;
+  bottom: -15px;
+}
+section#weather-content-section #temp div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+section#weather-content-section #temp div span:nth-child(1) i {
+  color: rgb(190, 62, 62);
+}
+section#weather-content-section #temp div span:nth-child(2) i {
+  color: rgb(29, 87, 175);
+}
+section#weather-content-section #location {
+  grid-area: location;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+}
+section#weather-content-section #location span:nth-child(1) {
+  font-size: 2em;
+}
+section#weather-content-section #location span:nth-child(1) i {
+  color: rgb(207, 74, 74);
+}
+section#weather-content-section #location span:nth-child(2) {
+  justify-self: flex-start;
+  color: rgb(175, 171, 171);
+  font-size: 1.2em;
+}
+section#weather-content-section #other-parameters {
+  grid-area: other;
+  background-color: rgba(190, 180, 180, 0.3);
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px black;
+}
+section#weather-content-section #other-parameters ul {
+  width: 100%;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+section#weather-content-section #other-parameters ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+}
+section#weather-content-section #other-parameters ul li i {
+  color: rgb(216, 213, 213);
+}
+section#weather-content-section #other-parameters ul li span:nth-child(2) {
+  color: rgb(179, 172, 172);
 }
 
 :root {
   --dropdown-opacity:0;
   --box-height:40px;
+  --weather-content-opacity:0;
+  --box-shadow-color: transparent;
 }
 
+@font-face {
+  font-family: Righteous;
+  src: url("./Righteous-Regular.ttf");
+}
 body, html {
-  background-color: rgb(9, 44, 65);
+  background-color: rgb(14, 14, 14);
   display: grid;
   height: 100vh;
   width: 100vw;
   place-content: center;
   overflow-x: hidden;
+  font-family: Righteous;
 }/*# sourceMappingURL=main.css.map */

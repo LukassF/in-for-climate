@@ -1,5 +1,5 @@
 export const APIkey = "2776200c72d03c5a7a95d9bbdffa5a9f";
-export default async function search({setCurrentWeather, setWeatherForecast, city, list}){
+export default async function search({setCurrentWeather, setWeatherForecast, city, setLoaded}){
     const today = new Date()
     
     //API call for determining current weather conditions
@@ -44,5 +44,6 @@ export default async function search({setCurrentWeather, setWeatherForecast, cit
     //Assigning state
     setWeatherForecast(array)
     setCurrentWeather(weatherData.main)
+    setLoaded(true)
     
   }

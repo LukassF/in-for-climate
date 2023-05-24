@@ -10,12 +10,21 @@
 :root{
     --dropdown-opacity:0;
     --box-height:40px;
+    --weather-content-opacity:0;
+    --box-shadow-color: transparent;
 }
+
+@font-face{
+    font-family: Righteous;
+    src:url('./Righteous-Regular.ttf')
+}
+
 body, html{
-    background-color: rgb(9, 44, 65);
+    background-color: rgb(14, 14, 14);
     display:grid;
     height:100vh;
     width: 100vw;
     place-content: center;
     overflow-x: hidden;
+    font-family: Righteous;
 }
