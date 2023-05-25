@@ -4,7 +4,7 @@ import iso from '../data/iso3166.json'
 export default async function match({city, setList}){
 
     //Calling Geocoding API to find a list of cities matching current input value
-    const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`)
+    const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`)
     const matchedCities = await response.json()
     
     //filtering the array from unneccessary info
