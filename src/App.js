@@ -12,10 +12,6 @@ export default function App() {
   const [picked, setPicked] = useState(false)
 
   useEffect(() => {
-    console.log(weatherForecast, currentWeather)
-  },[currentWeather])
-
-  useEffect(() => {
     if(city.length > 0){
         match({city,setList})
     }else{setList([])}

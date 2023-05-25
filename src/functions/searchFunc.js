@@ -5,8 +5,10 @@ export default async function search({setCurrentWeather, setWeatherForecast, cit
     //API call for determining current weather conditions
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIkey}`)
     const weatherData = await response.json()
-    if(weatherData.cod === '404') return
-
+    if(weatherData.cod === '404'){
+        setLoaded(true)
+        return
+    }
     
     //First call for forecast
     const coords = weatherData.coord

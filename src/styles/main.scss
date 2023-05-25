@@ -39,11 +39,16 @@
 }
 
 body, html{
-    background: linear-gradient(45deg, black, rgb(2, 2, 37));
-    display:grid;
+    background: linear-gradient(rgb(3, 21, 37), rgb(4, 26, 39));
     height:100vh;
     width: 100vw;
-    place-content: center;
+    @include flex(column,flex-start,center);
+    gap:0;
+    padding: 0;
     overflow-x: hidden;
+    overflow-y: auto;
+    @media screen and (max-width: 550px) {
+        overflow-y: hidden;
+    }
     font-family: Righteous;
 }

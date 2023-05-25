@@ -8,7 +8,7 @@ import Forecast from "./weather-forecast"
 export default function WeatherBox({searchSuggestions, setCurrentWeather, setWeatherForecast, setCity, city, currentWeather, setPicked, list, weatherForecast}){
     const citySearchRef = useRef(null)
     const dropdownRef = useRef(null)
-    const [loaded, setLoaded] = useState(false)
+    const [loaded, setLoaded] = useState(true)
 
     return(
         <main>
@@ -27,6 +27,7 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
                     />
                     <button onClick={() => {
                         if(list.length <= 0) return
+                        setLoaded(false)
                         search({setCurrentWeather, setWeatherForecast, city, setLoaded})
                         dropdownRef.current.style.zIndex = '-1'
                         document.documentElement.style.setProperty('--box-height','650px')
@@ -35,31 +36,27 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
                 </div>
                
                 {currentWeather.main !== undefined ?
-                    // loaded ? 
                     <WeatherContent 
                         currentWeather={currentWeather}
                         city={city}
                     />
                     :
+                    loaded ?
                     <div className="no-results">
                         <img src="https://cdni.iconscout.com/illustration/premium/thumb/search-result-not-found-2130355-1800920.png" width="80%"></img>
                         <h1 style={{color:'white'}}>Oops! No matches found.</h1>
                     </div>
-                    // :
-                    // <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    :
+                    <div></div>
                 }
 
                 {currentWeather.main !== undefined && 
                     <Forecast weatherForecast={weatherForecast} currentWeather={currentWeather}/>
                 }
+                {!loaded && 
+                    <div className="lds-facebook"><div></div><div></div><div></div></div>
+                }
 
-                {/* {(currentWeather.main === undefined && loaded) &&
-                    <div className="no-results">
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/search-result-not-found-2130355-1800920.png" width="80%"></img>
-                        <h1 style={{color:'white'}}>Oops! No matches found.</h1>
-                    </div>
-
-                } */}
             </section>
             
             <div id="dropdown-suggestions" ref={dropdownRef}>

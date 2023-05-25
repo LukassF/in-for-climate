@@ -27,7 +27,7 @@ export default function WeatherContent({currentWeather, city}){
                 <ul>
                     <li><span><i className='fa fa-droplet'/> Humidity</span><span>{currentWeather.humidity} %</span></li>
                     <li><span><i className='fa fa-weight'/> Pressure</span><span>{currentWeather.pressure} hPa</span></li>
-                    <li><span><i className='fa fa-wind'/> Windspeed</span><span>{currentWeather.speed} km/h</span></li>
+                    <li><span><i className='fa fa-wind'/> Windspeed</span><span>{currentWeather.speed} m/s</span></li>
                     <li><span><i className='fa fa-compass'/> Direction</span><span>{degreeToDirection(currentWeather.deg)}</span></li>
                 </ul>
             </div>
