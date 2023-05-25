@@ -5,22 +5,21 @@
   transition: all 0.4s;
   max-width: 100vw;
   background: linear-gradient(rgb(28, 107, 103), rgb(4, 26, 39));
-  border-radius: 10px;
+  border-radius: 30px;
   border: solid white 2px;
-  padding: 15px;
+  padding: 20px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
   overflow: hidden;
-  box-shadow: 0px 0px 40px var(--box-shadow-color);
 }
 @media screen and (max-width: 550px) {
   #weather-box-section {
     box-shadow: none;
     border: none;
-    height: 91vh;
+    height: 90vh;
     top: 40px;
     border-radius: 0;
     transform: scale(0.95);
@@ -39,16 +38,18 @@
   flex: 10;
   height: 45px;
   border-radius: 10px;
-  border: solid black 2px;
+  border: none;
   outline: none;
   padding: 0px 10px;
-  font-size: 1.1em;
-  background-color: rgb(212, 209, 209);
+  font-size: 1.4em;
+  background-color: transparent;
+  color: white;
+  z-index: 10;
 }
 #weather-box-section #input-box button {
   flex: 1;
-  height: 48px;
-  border-radius: 10px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
   border: none;
   background-color: rgb(0, 195, 255);
   cursor: pointer;
@@ -80,12 +81,11 @@
   }
 }
 #dropdown-suggestions #suggestion {
-  background-color: rgb(224, 224, 224);
+  background-color: rgba(224, 224, 224, 0.8);
   max-width: calc(95vw - 30px);
   width: 520px;
   padding: 15px;
   border-radius: 5px;
-  border: solid rgb(179, 176, 176) 1px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -118,6 +118,27 @@
 @media screen and (max-width: 550px) {
   #dropdown-suggestions #suggestion div span:nth-child(2) {
     font-size: 0.7em;
+  }
+}
+
+.no-results {
+  top: 80px;
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: var(--weather-content-opacity);
+  transition: all 0.3s;
+}
+.no-results h1 {
+  font-size: 2em;
+}
+@media screen and (max-width: 550px) {
+  .no-results h1 {
+    font-size: 1.4em;
   }
 }
 
@@ -300,6 +321,7 @@ section#weather-content-section #temp div span:nth-child(2) i {
 }
 section#weather-content-section #location {
   grid-area: location;
+  margin-top: -30px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -310,6 +332,11 @@ section#weather-content-section #location {
 section#weather-content-section #location span:nth-child(1) {
   font-size: 2em;
 }
+@media screen and (max-width: 550px) {
+  section#weather-content-section #location span:nth-child(1) {
+    font-size: 1.6em;
+  }
+}
 section#weather-content-section #location span:nth-child(1) i {
   color: rgb(207, 74, 74);
 }
@@ -317,6 +344,11 @@ section#weather-content-section #location span:nth-child(2) {
   justify-self: flex-start;
   color: rgb(175, 171, 171);
   font-size: 1.2em;
+}
+@media screen and (max-width: 550px) {
+  section#weather-content-section #location span:nth-child(2) {
+    font-size: 1em;
+  }
 }
 section#weather-content-section #other-parameters {
   grid-area: other;
@@ -391,18 +423,69 @@ nav i {
 }
 
 #forecast-box {
-  width: 100%;
-  height: 200px;
+  opacity: var(--weather-content-opacity);
+  transition: all 0.3s;
+  width: calc(100% - 10px);
+  height: 170px;
   background-color: rgba(190, 180, 180, 0.3);
   border-radius: 20px;
   box-shadow: 3px 3px 10px black;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 15px 5px;
+}
+#forecast-box .day-box {
+  flex: 1;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  position: relative;
+}
+@media screen and (max-width: 550px) {
+  #forecast-box .day-box {
+    font-size: 0.8em;
+  }
+}
+#forecast-box .day-box #day {
+  font-size: 1.3em;
+  color: rgb(197, 193, 193);
+}
+#forecast-box .day-box img {
+  width: 30%;
+}
+#forecast-box .day-box .graph {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: rgb(150, 147, 147);
+}
+#forecast-box .day-box .graph::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  left: 50%;
+  height: 10px;
+  bottom: 55px;
+  background-color: red;
+  transform: translateX(-50%);
 }
 
 :root {
   --dropdown-opacity:0;
   --box-height:40px;
   --weather-content-opacity:0;
-  --box-shadow-color: transparent;
 }
 
 @font-face {

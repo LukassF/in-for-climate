@@ -8,6 +8,8 @@ export default async function match({city, setList}){
     const matchedCities = await response.json()
     
     //filtering the array from unneccessary info
+    if(matchedCities.length <=0 ) return
+    
     const filteredCities = matchedCities.map(item => {
         let country = iso.filter(obj => obj.Code === item.country)
         if(country.length > 0)

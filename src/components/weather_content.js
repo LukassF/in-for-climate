@@ -4,7 +4,6 @@ import degreeToDirection from '../functions/degree_to_direction'
 
 export default function WeatherContent({currentWeather, city}){
     const icon = iconArray.filter(item => item.conditions === currentWeather.main && item.is_day === currentWeather.is_day)[0]
-    document.documentElement.style.setProperty('--box-shadow-color',icon['box-shadow'])
     const cityName = city.split(',')[0]
     const country = iso.filter(item => item.Code === currentWeather.country)[0].Name
     return(

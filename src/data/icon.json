@@ -2,32 +2,27 @@
     {
         "conditions": "Clear",
         "is_day":1,
-        "icon":"./assets/fullsun.png",
-        "box-shadow": "rgb(228, 253, 6)"
+        "icon":"./assets/fullsun.png"
     },
     {
         "conditions": "Clear",
         "is_day":0,
-        "icon":"./assets/fullmoon.png",
-        "box-shadow": "white"
+        "icon":"./assets/moon.png"  
     },
     {
         "conditions": "Clouds",
         "is_day":1,
-        "icon":"./assets/cloudedsun.png", 
-        "box-shadow": "rgb(228, 253, 6)" 
+        "icon":"./assets/cloudedsun.png"  
     },
     {
         "conditions": "Clouds",
         "is_day":0,
-        "icon":"./assets/cloudedmoon.png",
-        "box-shadow": "white"  
+        "icon":"./assets/cloudedmoon.png"  
     },
     {
         "conditions": "Haze",
         "is_day":1,
-        "icon":"./assets/fog.png",
-        "box-shadow": "grey"  
+        "icon":"./assets/fog.png"  
     },
     {
         "conditions": "Haze",
@@ -37,25 +32,21 @@
     {
         "conditions": "Rain",
         "is_day":1,
-        "icon":"./assets/rain.png",
-        "box-shadow": "blue" 
+        "icon":"./assets/rain.png"  
     },
     {
         "conditions": "Rain",
         "is_day":0,
-        "icon":"./assets/rain.png",
-        "box-shadow": "blue"  
+        "icon":"./assets/rain.png"  
     },
     {
         "conditions": "Snow",
         "is_day":1,
-        "icon":"./assets/snow.png",
-        "box-shadow": "aliceblue"  
+        "icon":"./assets/snow.png"  
     },
     {
         "conditions": "Snow",
         "is_day":0,
-        "icon":"./assets/snow.png",
-        "box-shadow": "aliceblue"  
+        "icon":"./assets/snow.png"  
     }
 ]

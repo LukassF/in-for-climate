@@ -92,12 +92,16 @@ section#weather-content-section{
     }
     #location{
         grid-area: location;
+        margin-top: -30px;
         @include flex(row, center, center);
         gap:20px;
         color:white;
 
         span:nth-child(1){
             font-size: 2em;
+            @media screen and (max-width:550px){
+                font-size: 1.6em;
+            }
 
             i{
                 color: rgb(207, 74, 74);
@@ -107,6 +111,10 @@ section#weather-content-section{
             justify-self: flex-start;
             color:rgb(175, 171, 171);
             font-size: 1.2em;
+
+            @media screen and (max-width:550px){
+                font-size: 1em;
+            }
         }
     }
     #other-parameters{

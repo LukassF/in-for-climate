@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import search from "./functions/searchFunc";
 import match from "./functions/matchCities";
 import './styles/main.css'
 import WeatherBox from "./components/weather-box";
@@ -41,6 +40,7 @@ export default function App() {
         city={city}
         setPicked={setPicked}
         list={list}
+        weatherForecast={weatherForecast}
         />
     </>
   );
