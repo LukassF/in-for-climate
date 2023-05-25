@@ -14,8 +14,8 @@ export default function WeatherContent({currentWeather, city}){
             <div id="temp">
                 <span id="main-temp">{Math.round(currentWeather.temp)} °C</span>
                 <div>
-                    <span><i className='fa fa-arrow-up'/><p>{Math.round(currentWeather.temp_max)} °C</p></span>
-                    <span><i className='fa fa-arrow-down'/><p>{Math.round(currentWeather.temp_min)} °C</p></span>
+                    <span><i className='fa fa-arrow-up'/><p>{Math.round(currentWeather.max)} °C</p></span>
+                    <span><i className='fa fa-arrow-down'/><p>{Math.round(currentWeather.min)} °C</p></span>
                 </div>
             </div>
             <div id="location">

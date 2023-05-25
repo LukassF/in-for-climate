@@ -12,7 +12,6 @@ export default async function search({setCurrentWeather, setWeatherForecast, cit
     const coords = weatherData.coord
     const response2 = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&appid=${APIkey}`)
     const forecast2 = await response2.json()
-    // console.log(forecast2)
     
     //Checking if the first day of the forecast array is today
     let nextDays
@@ -29,9 +28,8 @@ export default async function search({setCurrentWeather, setWeatherForecast, cit
     //Calling a different API, due to better readability of temperatures
     const response3 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&daily=temperature_2m_max,temperature_2m_min&current_weather=true&timezone=Europe%2FBerlin`)
     const forecast3 = await response3.json()
-    // console.log(forecast3)
 
-    Object.assign(weatherData.main,weatherData.weather[0],weatherData.wind,{country: weatherData.sys.country},{is_day: forecast3.current_weather.is_day})
+    Object.assign(weatherData.main,{max:forecast3.daily.temperature_2m_max[0], min:forecast3.daily.temperature_2m_min[0]},weatherData.weather[0],weatherData.wind,{country: weatherData.sys.country},{is_day: forecast3.current_weather.is_day})
     const maxTemperatures = forecast3.daily.temperature_2m_max.slice(1,-2)
     const minTemperatures = forecast3.daily.temperature_2m_min.slice(1,-2)
     const time = forecast3.daily.time.slice(1,-2)

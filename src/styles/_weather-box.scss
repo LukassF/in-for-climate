@@ -76,6 +76,7 @@
     position: absolute;
     top:54%;
     left:50%;
+    margin-top: 15px;
     transform: translateX(-50%);
     opacity: var(--dropdown-opacity);
     transition: opacity 0.3s;
