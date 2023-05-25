@@ -374,6 +374,7 @@ nav i {
   border-radius: 20px;
   box-shadow: 3px 3px 10px black;
   overflow-x: auto;
+  overflow-y: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -419,7 +420,7 @@ nav i {
   position: absolute;
   width: 103%;
   left: 50%;
-  height: 2px;
+  height: 1px;
   bottom: 55px;
   background-color: rgb(255, 255, 255);
 }

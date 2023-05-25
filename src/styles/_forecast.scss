@@ -7,6 +7,7 @@
     border-radius: 20px;
     box-shadow: 3px 3px 10px black;
     overflow-x: auto;
+    overflow-y: hidden;
 
     @include flex(row,flex-start,center);
     padding: 15px 5px;
@@ -45,7 +46,7 @@
                 position: absolute;
                 width:103%;
                 left:50%;
-                height:2px;
+                height:1px;
                 bottom:55px;
                 background-color: rgb(255, 255, 255);
             }

@@ -53,7 +53,7 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
                 {currentWeather.main !== undefined && 
                     <Forecast weatherForecast={weatherForecast} currentWeather={currentWeather}/>
                 }
-                {!loaded && 
+                {(!loaded && currentWeather.main === undefined)&& 
                     <div className="lds-facebook"><div></div><div></div><div></div></div>
                 }
 
