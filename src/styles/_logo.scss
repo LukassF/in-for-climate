@@ -1,0 +1,58 @@
+#logo-main{
+    width:100vw;
+    height:550px;
+    z-index: 0;
+    @media screen and (max-width: 550px) {
+        z-index: 6;
+    }
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:0;
+    margin-top: 50px;
+    @include flex(column,center,center);
+
+    #logo-content{
+        width:60%;
+        @include flex(column,center,center);
+        color:white;
+
+        @media screen and (max-width:700px) {
+            font-size: 0.6em;
+        }
+
+        span{
+            width:100%;
+            @include flex(column,flex-start,center);
+            font-size: 5em;
+            gap:40px;
+
+            img{
+                
+                @media screen and (max-width:700px) {
+                    width:150px;
+                }
+            }
+        }
+
+        div{
+            font-size: 2em;
+            color:grey;
+        }
+    }
+}
+
+.home-screen-transition-enter{
+    opacity:0;
+}
+.home-screen-transition-enter-active{
+    opacity:1;
+    transition: all 0.3s;
+}
+.home-screen-transition-exit{
+    opacity: 1;
+}
+.home-screen-transition-exit-active{
+    opacity:0;
+    transition: all 0.3s;
+}

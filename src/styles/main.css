@@ -1,5 +1,6 @@
 #weather-box-section {
   position: relative;
+  z-index: 5;
   width: 550px;
   height: var(--box-height);
   transition: all 0.4s;
@@ -15,6 +16,12 @@
   gap: 10px;
   overflow: hidden;
   margin-top: 30px;
+}
+@media screen and (min-width: 550px) {
+  #weather-box-section {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 @media screen and (max-width: 550px) {
   #weather-box-section {
@@ -469,6 +476,75 @@ nav i {
 }
 #forecast-box .day-box:nth-child(5) .graph::before {
   bottom: var(--box4-graph-point);
+}
+
+#logo-main {
+  width: 100vw;
+  height: 550px;
+  z-index: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 550px) {
+  #logo-main {
+    z-index: 6;
+  }
+}
+#logo-main #logo-content {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+@media screen and (max-width: 700px) {
+  #logo-main #logo-content {
+    font-size: 0.6em;
+  }
+}
+#logo-main #logo-content span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 5em;
+  gap: 40px;
+}
+@media screen and (max-width: 700px) {
+  #logo-main #logo-content span img {
+    width: 150px;
+  }
+}
+#logo-main #logo-content div {
+  font-size: 2em;
+  color: grey;
+}
+
+.home-screen-transition-enter {
+  opacity: 0;
+}
+
+.home-screen-transition-enter-active {
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.home-screen-transition-exit {
+  opacity: 1;
+}
+
+.home-screen-transition-exit-active {
+  opacity: 0;
+  transition: all 0.3s;
 }
 
 :root {

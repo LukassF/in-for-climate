@@ -1,6 +1,7 @@
 export const APIkey = "2776200c72d03c5a7a95d9bbdffa5a9f";
-export default async function search({setCurrentWeather, setWeatherForecast, city, setLoaded}){
+export default async function search({setCurrentWeather, setWeatherForecast, city, setLoaded,setHomeScreen}){
     const today = new Date()
+    setHomeScreen(false)
     
     //API call for determining current weather conditions
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIkey}`)
@@ -47,5 +48,6 @@ export default async function search({setCurrentWeather, setWeatherForecast, cit
     setWeatherForecast(array)
     setCurrentWeather(weatherData.main)
     setLoaded(true)
+
     
   }

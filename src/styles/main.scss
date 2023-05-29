@@ -2,6 +2,7 @@
 @import './weather-content';
 @import './navbar';
 @import './forecast';
+@import './logo';
 
 @mixin flex($direction, $justify, $align){
     display:flex;
