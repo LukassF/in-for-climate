@@ -1,6 +1,5 @@
 #weather-box-section {
   position: relative;
-  z-index: 5;
   width: 550px;
   height: var(--box-height);
   transition: all 0.4s;
@@ -491,11 +490,6 @@ nav i {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-@media screen and (max-width: 550px) {
-  #logo-main {
-    z-index: 6;
-  }
 }
 #logo-main #logo-content {
   width: 60%;
