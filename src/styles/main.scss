@@ -40,7 +40,7 @@
 }
 
 body, html{
-    background: linear-gradient(rgb(3, 21, 37), rgb(4, 26, 39));
+    background: linear-gradient(to right,rgb(3, 21, 37), rgb(4, 26, 39));
     height:100vh;
     width: 100vw;
     @include flex(column,flex-start,center);
