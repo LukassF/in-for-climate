@@ -10,6 +10,16 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
     const dropdownRef = useRef(null)
     const [loaded, setLoaded] = useState(true)
 
+    function searchPress(){
+        if(list.length <= 0) return
+        setLoaded(false)
+        console.log('1')
+        search({setCurrentWeather, setWeatherForecast, city, setLoaded,setHomeScreen})
+        dropdownRef.current.style.zIndex = '-1'
+        document.documentElement.style.setProperty('--box-height','650px')
+        document.documentElement.style.setProperty('--weather-content-opacity',1)
+    }
+
     return(
         <main>
             <section id="weather-box-section">
@@ -24,17 +34,15 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
                             document.documentElement.style.setProperty('--box-height','40px')
                             document.documentElement.style.setProperty('--weather-content-opacity',0)
                         }}
+                        onKeyDown={(e) => {
+                            if(e.key === "Enter"){
+                                searchPress()
+                                e.target.blur()
+                            }
+                        }}
                         ref={citySearchRef}
                     />
-                    <button onClick={() => {
-                        if(list.length <= 0) return
-                        setLoaded(false)
-                        search({setCurrentWeather, setWeatherForecast, city, setLoaded,setHomeScreen})
-                        dropdownRef.current.style.zIndex = '-1'
-                        document.documentElement.style.setProperty('--box-height','650px')
-                        document.documentElement.style.setProperty('--weather-content-opacity',1)
-                        
-                    }}><i className="fa fa-magnifying-glass"/></button>
+                    <button onClick={searchPress}><i className="fa fa-magnifying-glass"/></button>
                 </div>
                
                 {currentWeather.main !== undefined ?

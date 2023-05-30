@@ -265,10 +265,10 @@ section#weather-content-section #temp div {
   gap: 20px;
 }
 section#weather-content-section #temp div span:nth-child(1) i {
-  color: rgb(190, 62, 62);
+  color: rgb(199, 108, 108);
 }
 section#weather-content-section #temp div span:nth-child(2) i {
-  color: rgb(54, 124, 230);
+  color: rgb(101, 152, 228);
 }
 section#weather-content-section #location {
   grid-area: location;
