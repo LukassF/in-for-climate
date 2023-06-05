@@ -9,12 +9,15 @@ export default function WeatherBox({searchSuggestions, setCurrentWeather, setWea
     const citySearchRef = useRef(null)
     const dropdownRef = useRef(null)
     const [loaded, setLoaded] = useState(true)
+    
+    useEffect(() => {
+        if(!loaded)
+        search({setCurrentWeather, setWeatherForecast, city, setLoaded,setHomeScreen})
+    },[loaded])
 
     function searchPress(){
         if(list.length <= 0) return
         setLoaded(false)
-        console.log('1')
-        search({setCurrentWeather, setWeatherForecast, city, setLoaded,setHomeScreen})
         dropdownRef.current.style.zIndex = '-1'
         document.documentElement.style.setProperty('--box-height','650px')
         document.documentElement.style.setProperty('--weather-content-opacity',1)

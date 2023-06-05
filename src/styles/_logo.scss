@@ -1,15 +1,27 @@
+@keyframes spin{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes shake{
+    from{
+        transform: translate(-100px,-50px);
+    }
+    to{
+        transform: translate(100px,0px);
+    }
+}
+
 #logo-main{
-    // background-color: red;
     width:100vw;
     height:400px;
     padding: 20px 0px;
     z-index: 0;
-    // @media screen and (max-width: 550px) {
-    //     z-index: 6;
-    // }
     position: absolute;
     top:150px;
-    // transform: translateY(-50%);
     left:0;
     margin-top: 50px;
     @include flex(column,center,center);
@@ -32,10 +44,21 @@
             font-size: 5em;
             gap:40px;
 
-            img{
+            svg{
                 
                 @media screen and (max-width:700px) {
-                    width:150px;
+                    width:250px;
+                }
+
+                g#sun{
+                    animation: spin 10s linear infinite;
+                    transform-box: fill-box;
+                    transform-origin: center;
+                }
+                g#cloud{
+                    animation: shake 1.5s ease-in-out infinite alternate;
+                    // transform-box: fill-box;
+                    // transform-origin: center;
                 }
             }
         }
@@ -52,12 +75,12 @@
 }
 .home-screen-transition-enter-active{
     opacity:1;
-    transition: all 0.3s;
+    transition: all 0.8s;
 }
 .home-screen-transition-exit{
     opacity: 1;
 }
 .home-screen-transition-exit-active{
     opacity:0;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }

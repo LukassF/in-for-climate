@@ -119,7 +119,7 @@ section#weather-content-section{
     }
     #other-parameters{
         grid-area: other;
-        background-color: rgba(190, 180, 180, 0.3);
+        background-color: rgba(190, 180, 180, 0.2);
         border-radius: 20px;
         box-shadow: 3px 3px 10px black;
         @include flex(column, center, center);

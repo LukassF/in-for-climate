@@ -303,7 +303,7 @@ section#weather-content-section #location span:nth-child(2) {
 }
 section#weather-content-section #other-parameters {
   grid-area: other;
-  background-color: rgba(190, 180, 180, 0.3);
+  background-color: rgba(190, 180, 180, 0.2);
   border-radius: 20px;
   box-shadow: 3px 3px 10px black;
   display: flex;
@@ -376,7 +376,7 @@ nav i {
   transition: all 0.3s;
   width: calc(100% - 10px);
   height: 170px;
-  background-color: rgba(190, 180, 180, 0.3);
+  background-color: rgba(190, 180, 180, 0.2);
   border-radius: 20px;
   box-shadow: 3px 3px 10px black;
   overflow-x: auto;
@@ -477,6 +477,22 @@ nav i {
   bottom: var(--box4-graph-point);
 }
 
+@keyframes spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes shake {
+  from {
+    transform: translate(-100px, -50px);
+  }
+  to {
+    transform: translate(100px, 0px);
+  }
+}
 #logo-main {
   width: 100vw;
   height: 400px;
@@ -519,9 +535,17 @@ nav i {
   gap: 40px;
 }
 @media screen and (max-width: 700px) {
-  #logo-main #logo-content span img {
-    width: 150px;
+  #logo-main #logo-content span svg {
+    width: 250px;
   }
+}
+#logo-main #logo-content span svg g#sun {
+  animation: spin 10s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+#logo-main #logo-content span svg g#cloud {
+  animation: shake 1.5s ease-in-out infinite alternate;
 }
 #logo-main #logo-content div {
   font-size: 2em;
@@ -534,7 +558,7 @@ nav i {
 
 .home-screen-transition-enter-active {
   opacity: 1;
-  transition: all 0.3s;
+  transition: all 0.8s;
 }
 
 .home-screen-transition-exit {
@@ -543,7 +567,7 @@ nav i {
 
 .home-screen-transition-exit-active {
   opacity: 0;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 :root {
