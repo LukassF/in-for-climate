@@ -20,7 +20,7 @@
     background:linear-gradient(rgb(28, 107, 103), rgb(4, 26, 39));
     border-radius: 30px;
     border:solid white 2px;
-    padding: 20px 15px 30px 15px;
+    padding: 20px 15px;
     @include flex(column, flex-start, center);
     gap:10px;
     overflow: hidden;
