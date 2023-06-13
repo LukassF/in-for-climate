@@ -434,7 +434,7 @@ nav i {
 #forecast-box .day-box .graph::after {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 104%;
   left: 50%;
   height: 2px;
   bottom: 55px;
@@ -444,10 +444,10 @@ nav i {
 #forecast-box .day-box .graph::before {
   content: "";
   position: absolute;
-  width: 8px;
+  width: 10px;
   left: 50%;
   border-radius: 50%;
-  height: 8px;
+  height: 10px;
   bottom: 50px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 5px white;
