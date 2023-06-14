@@ -53,6 +53,20 @@
   color: white;
   z-index: 10;
 }
+#weather-box-section #input-box input::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  opacity: 1; /* Firefox */
+}
+#weather-box-section #input-box input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  opacity: 1; /* Firefox */
+}
+#weather-box-section #input-box input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(255, 255, 255);
+}
+#weather-box-section #input-box input::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(255, 255, 255);
+}
 #weather-box-section #input-box button {
   flex: 1;
   aspect-ratio: 1/1;
