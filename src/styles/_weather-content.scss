@@ -77,16 +77,6 @@ section#weather-content-section{
             @include flex(row, center, center);
             gap:20px;
 
-            span:nth-child(1){
-                i{
-                    color:rgb(199, 108, 108);
-                }
-            }
-            span:nth-child(2){
-                i{
-                    color:rgb(101, 152, 228);
-                }
-            }
         }
 
     }
@@ -104,7 +94,7 @@ section#weather-content-section{
             }
 
             i{
-                color: rgb(207, 74, 74);
+                color: rgb(255, 255, 255);
             }
         }
         span:nth-child(2){
@@ -121,7 +111,8 @@ section#weather-content-section{
         grid-area: other;
         background-color: rgba(190, 180, 180, 0.2);
         border-radius: 20px;
-        box-shadow: 3px 3px 10px black;
+        font-size: 0.9em;
+        // box-shadow: 3px 3px 10px black;
         @include flex(column, center, center);
         
         ul{
@@ -140,10 +131,10 @@ section#weather-content-section{
                 color:white;
 
                 i{
-                    color:rgb(216, 213, 213);
+                    color:rgb(230, 230, 230);
                 }
                 span:nth-child(2){
-                    color:rgb(179, 172, 172);
+                    color:rgb(255, 255, 255);
                 }
             }
         }

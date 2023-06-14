@@ -15,32 +15,33 @@
     --box-height:40px;
     --weather-content-opacity:0;
     
-    --box0-graph-skew:0deg;
-    --box1-graph-skew:0deg;
-    --box2-graph-skew:0deg;
-    --box3-graph-skew:0deg;
-    --box4-graph-skew:0deg;
+    // --box0-graph-skew:0deg;
+    // --box1-graph-skew:0deg;
+    // --box2-graph-skew:0deg;
+    // --box3-graph-skew:0deg;
+    // --box4-graph-skew:0deg;
 
-    --box0-bottom:0px;
-    --box1-bottom:0px;
-    --box2-bottom:0px;
-    --box3-bottom:0px;
-    --box4-bottom:0px;
+    // --box0-bottom:0px;
+    // --box1-bottom:0px;
+    // --box2-bottom:0px;
+    // --box3-bottom:0px;
+    // --box4-bottom:0px;
 
-    --box0-graph-point:0px;
-    --box1-graph-point:0px;
-    --box2-graph-point:0px;
-    --box3-graph-point:0px;
-    --box4-graph-point:0px;
+    --box0:0px;
+    --box1:0px;
+    --box2:0px;
+    --box3:0px;
+    --box4:0px;
 }
 
 @font-face{
-    font-family: Righteous;
-    src:url('./Righteous-Regular.ttf')
+    font-family: OpenSans;
+    src:url('./OpenSans-VariableFont_wdth\,wght.ttf')
 }
 
 body, html{
     background: linear-gradient(to right,rgb(3, 21, 37), rgb(4, 26, 39));
+    // background: linear-gradient(rgb(6, 115, 134),rgb(2, 40, 51));
     height:100vh;
     width: 100vw;
     @include flex(column,flex-start,center);
@@ -51,5 +52,5 @@ body, html{
     @media screen and (max-width: 550px) {
         overflow-y: hidden;
     }
-    font-family: Righteous;
+    font-family: OpenSans;
 }

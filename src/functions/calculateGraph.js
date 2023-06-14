@@ -8,26 +8,25 @@ export default function calculateGraph({ max, min }) {
   const minValue = Math.min(...averageTemps);
 
   const range = maxValue - minValue;
-  const coefficient = 25 / range;
-  console.log(coefficient);
+  const coefficient = 40 / range;
 
   const differences = [];
+  const boxes = [];
   averageTemps.forEach((item, index) => {
-    if (index >= 4) {
-      differences.push({ deg: 0, mean: 0 });
-      return;
-    }
-    const deg = coefficient * Math.atan(item - averageTemps[index + 1], 107);
-    differences.push({
-      deg: deg,
-      mean:
-        ((item + averageTemps[index + 1]) / 2 - minValue) * coefficient + 22.5,
-    });
+    differences.push((item - minValue) * coefficient);
   });
-  averageTemps.forEach(
-    (item, index) =>
-      (averageTemps[index] = (item - minValue) * coefficient + 20.5)
-  );
+  differences.forEach((item) => {
+    boxes.push(40 - item + 2.5);
+  });
+  // console.log(boxes);
 
-  return { diff: differences, average: averageTemps };
+  for (let i = 0; i < 4; i++) {
+    differences[i] = {
+      y1: 40 - differences[i] + 2.5,
+      y2: 40 - differences[i + 1] + 2.5,
+    };
+  }
+  // console.log(differences);
+
+  return { line: differences, box: boxes };
 }

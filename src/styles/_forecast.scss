@@ -1,3 +1,10 @@
+$box1: var(--box0);
+$box2: var(--box1);
+$box3: var(--box2);
+$box4: var(--box3);
+
+$boxes: $box1,$box2,$box3,$box4;
+
 #forecast-box{
     opacity:var(--weather-content-opacity);
     transition: all 0.3s;
@@ -5,7 +12,7 @@
     min-height:170px;
     background-color: rgba(190, 180, 180, 0.2);
     border-radius: 20px;
-    box-shadow: 3px 3px 10px black;
+    // box-shadow: 3px 3px 10px black;
     overflow-x: auto;
     overflow-y: hidden;
 
@@ -14,6 +21,7 @@
 
 
     .day-box{
+
         flex-shrink: 0;
         height:100%;
         width:108px;
@@ -25,8 +33,8 @@
         }
         
         #day{
-            font-size: 1.3em;
-            color:rgb(197, 193, 193);
+            font-size: 1.1em;
+            color:rgb(255, 255, 255);
         }
 
         img{
@@ -39,84 +47,69 @@
             position: relative;
             @include flex(column,space-between,center);
             font-size: 0.9em;
-            color:rgb(150, 147, 147);
+            color:rgb(255, 255, 255);
+            
 
-            &::after{
-                content: '';
-                position: absolute;
-                width:104%;
+            .line-container{
+                width:100%;
+                height:45px;
                 left:50%;
-                height:2px;
-                bottom:55px;
-                background-color: rgb(177, 174, 174);
-                z-index: 1;
-            }
-            &::before{
-                content: '';
-                position: absolute;
-                width:10px;
-                left:50%;
-                border-radius: 50%;
-                height:10px;
-                bottom:50px;
-                background-color: rgb(255, 255, 255);
-                box-shadow: 0px 0px 5px white;
-                transform: translateX(-50%);
-                z-index: 2;
+                position: relative;
+
+                svg{
+                    width:100%;
+                    height:100%;
+
+                    line{
+                        stroke: rgb(187, 187, 187);
+                        stroke-width: 1.5;
+                    }
+                }
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width:5px;
+                    left:0;
+                    border-radius: 50%;
+                    height:5px;
+                    background-color: rgb(255, 255, 255);
+                    box-shadow: 0px 0px 5px white;
+                    transform: translateX(-50%);
+                    z-index: 2;
+                }
             }
 
         }
-        &:nth-child(1){
-            .graph{
-                &::after{
-                    transform: rotate(var(--box0-graph-skew));
-                    bottom: var(--box0-bottom);
-                }
-                &::before{
-                    bottom:var(--box0-graph-point);
-                }
+        &:last-child{
+            .line-container{
+                display: none;
             }
         }
-        &:nth-child(2){
-            .graph{
-                &::after{
-                    transform: rotate(var(--box1-graph-skew));
-                    bottom: var(--box1-bottom);
-                }
-                &::before{
-                    bottom:var(--box1-graph-point);
-                }
-            }
-        }
-        &:nth-child(3){
-            .graph{
-                &::after{
-                    transform: rotate(var(--box2-graph-skew));
-                    bottom: var(--box2-bottom);
-                }
-                &::before{
-                    bottom:var(--box2-graph-point);
+        @for $i from 1 through length($boxes){
+            &:nth-child(#{$i}){
+                .graph{
+                    .line-container{
+                        &::before{
+                            top:calc(nth($boxes,$i) - 2px);
+                        }
+                    }
                 }
             }
         }
         &:nth-child(4){
-            .graph{
+            .line-container{
                 &::after{
-                    transform: rotate(var(--box3-graph-skew));
-                    bottom: var(--box3-bottom);
-                }
-                &::before{
-                    bottom:var(--box3-graph-point);
-                }
-            }
-        }
-        &:nth-child(5){
-            .graph{
-                &::after{
-                    display:none;
-                }
-                &::before{
-                    bottom:var(--box4-graph-point);
+                    content: '';
+                    position: absolute;
+                    width:5px;
+                    right:-5px;
+                    border-radius: 50%;
+                    height:5px;
+                    top:calc(var(--box4) - 2px);
+                    background-color: rgb(255, 255, 255);
+                    box-shadow: 0px 0px 5px white;
+                    transform: translateX(-50%);
+                    z-index: 2;
                 }
             }
         }
