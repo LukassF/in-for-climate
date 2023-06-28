@@ -1,142 +1,133 @@
-@mixin flex($direction, $justify, $align){
-    display:flex;
-    flex-direction: $direction;
-    align-items: $align;
-    justify-content: $justify;
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
 }
 
-section#weather-content-section{
-    opacity:var(--weather-content-opacity);
-    transition: opacity 0.4s;
-    width:100%;
-    height: 400px;
-    // background-color: aquamarine;
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3fr 1fr 1fr;
-    grid-template-areas: 
-    'icon temp'
-    'location location'
-    'other other'
-    ;
+section#weather-content-section {
+  opacity: var(--weather-content-opacity);
+  transition: opacity 0.4s;
+  width: 100%;
+  height: 400px;
+  // background-color: aquamarine;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3fr 1fr 1fr;
+  grid-template-areas:
+    "icon temp"
+    "location location"
+    "other other";
 
-    #icon{
-        display: grid;
-        place-content: center;
+  #icon {
+    display: grid;
+    place-content: center;
 
-        
-        @media screen and (max-width:550px){
-            img{
-                transform: scale(0.7);
-            }
-        }
+    @media screen and (max-width: 550px) {
+      img {
+        transform: scale(0.7);
+      }
     }
-    #temp{
-        // background-color: rgb(9, 255, 0);
-        @include flex(column, center,center);
+  }
+  #temp {
+    // background-color: rgb(9, 255, 0);
+    @include flex(column, center, center);
 
-        
-        @media screen and (max-width:550px){
-            transform: scale(0.8);
-        }
-
-        span{
-            text-align: center;
-            align-self: center;
-            font-size: 1.7em;
-            color:rgb(209, 206, 206);
-            @include flex(row,center, center );
-            gap:5px;
-
-            i{
-                font-size: 0.6em;
-            }
-
-            @media screen and (max-width:550px){
-                font-size: 1.6em;
-            }
-        }
-        
-
-        #main-temp{
-            font-size: 4em;
-            color:rgb(255, 253, 253);
-            position: relative;
-
-            &::after{
-                content: '';
-                position: absolute;
-                background-color: rgb(214, 212, 212);
-                width:100%;
-                height:4px;
-                border-radius: 500px;
-                bottom:-15px;
-            }
-        }
-        div{
-            @include flex(row, center, center);
-            gap:20px;
-
-        }
-
+    @media screen and (max-width: 550px) {
+      transform: scale(0.8);
     }
-    #location{
-        grid-area: location;
-        margin-top: -30px;
-        @include flex(row, center, center);
-        gap:20px;
-        color:white;
 
-        span:nth-child(1){
-            font-size: 2em;
-            @media screen and (max-width:550px){
-                font-size: 1.6em;
-            }
+    span {
+      text-align: center;
+      align-self: center;
+      font-size: 1.7em;
+      color: rgb(209, 206, 206);
+      @include flex(row, center, center);
+      gap: 5px;
 
-            i{
-                color: rgb(255, 255, 255);
-            }
-        }
-        span:nth-child(2){
-            justify-self: flex-start;
-            color:rgb(175, 171, 171);
-            font-size: 1.2em;
+      i {
+        font-size: 0.6em;
+      }
 
-            @media screen and (max-width:550px){
-                font-size: 1em;
-            }
-        }
+      @media screen and (max-width: 550px) {
+        font-size: 1.6em;
+      }
     }
-    #other-parameters{
-        grid-area: other;
-        background-color: rgba(190, 180, 180, 0.2);
-        border-radius: 20px;
-        font-size: 0.9em;
-        // box-shadow: 3px 3px 10px black;
+
+    #main-temp {
+      font-size: 4em;
+      color: rgb(255, 253, 253);
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: rgb(214, 212, 212);
+        width: 100%;
+        height: 4px;
+        border-radius: 500px;
+        bottom: -15px;
+      }
+    }
+    div {
+      @include flex(row, center, center);
+      gap: 20px;
+    }
+  }
+  #location {
+    grid-area: location;
+    margin-top: -30px;
+    @include flex(row, center, center);
+    gap: 20px;
+    color: white;
+
+    span:nth-child(1) {
+      font-size: 1.4em;
+
+      i {
+        color: rgb(255, 255, 255);
+      }
+    }
+    span:nth-child(2) {
+      justify-self: flex-start;
+      color: rgb(175, 171, 171);
+      font-size: 1.2em;
+
+      @media screen and (max-width: 550px) {
+        font-size: 1em;
+      }
+    }
+  }
+  #other-parameters {
+    grid-area: other;
+    background-color: rgba(190, 180, 180, 0.2);
+    border-radius: 20px;
+    font-size: 0.9em;
+    // box-shadow: 3px 3px 10px black;
+    @include flex(column, center, center);
+
+    ul {
+      width: 100%;
+      padding-left: 0px;
+      @include flex(row, space-around, center);
+      list-style: none;
+
+      @media screen and (max-width: 550px) {
+        font-size: 0.8em;
+      }
+
+      li {
         @include flex(column, center, center);
-        
-        ul{
-            width: 100%;
-            padding-left: 0px;
-            @include flex(row, space-around, center);
-            list-style: none;
+        gap: 10px;
+        color: white;
 
-            @media screen and (max-width:550px){
-                font-size: 0.8em;
-            }
-
-            li{
-                @include flex(column,center,center);
-                gap:10px;
-                color:white;
-
-                i{
-                    color:rgb(230, 230, 230);
-                }
-                span:nth-child(2){
-                    color:rgb(255, 255, 255);
-                }
-            }
+        i {
+          color: rgb(230, 230, 230);
         }
+        span:nth-child(2) {
+          color: rgb(255, 255, 255);
+        }
+      }
     }
+  }
 }

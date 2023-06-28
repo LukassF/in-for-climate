@@ -1,86 +1,84 @@
-@keyframes spin{
-    from{
-        transform: rotateZ(0deg);
-    }
-    to{
-        transform: rotateZ(360deg);
-    }
+@keyframes spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
 }
-@keyframes shake{
-    from{
-        transform: translate(-100px,-50px);
-    }
-    to{
-        transform: translate(100px,0px);
-    }
+@keyframes shake {
+  from {
+    transform: translate(-100px, -50px);
+  }
+  to {
+    transform: translate(100px, 0px);
+  }
 }
 
-#logo-main{
-    width:100vw;
-    height:400px;
-    padding: 20px 0px;
-    z-index: 0;
-    position: absolute;
-    top:150px;
-    left:0;
-    margin-top: 50px;
-    @include flex(column,center,center);
+#logo-main {
+  width: 100vw;
+  padding: 40px 0px;
+  z-index: 0;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  margin-top: 50px;
+  @include flex(column, center, center);
 
-    #logo-content{
-        width:60%;
-        @include flex(column,center,center);
-        color:white;
+  #logo-content {
+    width: 60%;
+    @include flex(column, center, center);
+    color: white;
 
-        @media screen and (max-width:700px) {
-            font-size: 0.7em;
-        }
-        @media screen and (max-width:550px) {
-            font-size: 0.5em;
-        }
+    @media screen and (max-width: 700px) {
+      font-size: 0.7em;
+    }
+    @media screen and (max-width: 550px) {
+      font-size: 0.5em;
+    }
 
-        span{
-            width:100%;
-            @include flex(column,flex-start,center);
-            font-size: 5em;
-            gap:40px;
+    span {
+      width: 100%;
+      @include flex(column, flex-start, center);
+      font-size: 5em;
+      gap: 40px;
 
-            svg{
-                
-                @media screen and (max-width:700px) {
-                    width:250px;
-                }
-
-                g#sun{
-                    animation: spin 10s linear infinite;
-                    transform-box: fill-box;
-                    transform-origin: center;
-                }
-                g#cloud{
-                    animation: shake 1.5s ease-in-out infinite alternate;
-                    // transform-box: fill-box;
-                    // transform-origin: center;
-                }
-            }
+      svg {
+        @media screen and (max-width: 700px) {
+          width: 250px;
         }
 
-        div{
-            font-size: 2em;
-            color:rgb(214, 212, 212);
+        g#sun {
+          animation: spin 10s linear infinite;
+          transform-box: fill-box;
+          transform-origin: center;
         }
+        g#cloud {
+          animation: shake 1.5s ease-in-out infinite alternate;
+          // transform-box: fill-box;
+          // transform-origin: center;
+        }
+      }
     }
+
+    div {
+      font-size: 2em;
+      color: rgb(214, 212, 212);
+    }
+  }
 }
 
-.home-screen-transition-enter{
-    opacity:0;
+.home-screen-transition-enter {
+  opacity: 0;
 }
-.home-screen-transition-enter-active{
-    opacity:1;
-    transition: all 0.8s;
+.home-screen-transition-enter-active {
+  opacity: 1;
+  transition: all 0.8s;
 }
-.home-screen-transition-exit{
-    opacity: 1;
+.home-screen-transition-exit {
+  opacity: 1;
 }
-.home-screen-transition-exit-active{
-    opacity:0;
-    transition: all 0.2s;
+.home-screen-transition-exit-active {
+  opacity: 0;
+  transition: all 0.2s;
 }

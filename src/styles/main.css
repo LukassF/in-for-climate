@@ -299,12 +299,7 @@ section#weather-content-section #location {
   color: white;
 }
 section#weather-content-section #location span:nth-child(1) {
-  font-size: 2em;
-}
-@media screen and (max-width: 550px) {
-  section#weather-content-section #location span:nth-child(1) {
-    font-size: 1.6em;
-  }
+  font-size: 1.4em;
 }
 section#weather-content-section #location span:nth-child(1) i {
   color: rgb(255, 255, 255);
@@ -511,11 +506,10 @@ nav i {
 }
 #logo-main {
   width: 100vw;
-  height: 400px;
-  padding: 20px 0px;
+  padding: 40px 0px;
   z-index: 0;
   position: absolute;
-  top: 150px;
+  top: 80px;
   left: 0;
   margin-top: 50px;
   display: flex;
